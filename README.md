@@ -6,6 +6,7 @@
 - Http istekleri için axios kullanılmıştır.
 - Material-ui Drawer ile sepet içerisindeki ürünlerin detayları ve toplam tutar gösterilmiştir. 
 - Arka plan için karanlık ve aydınlık seçenekleri menu kısmına eklenmiştir
+- Ürünler listelenmeden önce Loading iconu eklenmiştir.
 - Ürün verilerini çekebilmek amacıyla "Fake Store API" kullanılmıştır.
 
 Root klasörüne proje için gerekli bağımlılıkları indirebiirsiniz
@@ -13,7 +14,9 @@ Root klasörüne proje için gerekli bağımlılıkları indirebiirsiniz
 ```npm install react-router-dom```
 ```npm install @mui/material @emotion/react @emotion/styled```
 
+![foto-1](./assets/eccomerce-7.png)
 ![foto-1](./assets/eccomerce-1.png)
+![foto-1](./assets/eccomerce-6.png)
 ![foto-2](./assets/eccomerce-2.png)
 ![foto-3](./assets/eccomerce-3.png)
 ![foto-4](./assets/eccomerce-4.png)
