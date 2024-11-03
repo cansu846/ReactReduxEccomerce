@@ -1,23 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import Container from '@mui/material/Container';
+import RouterConfig from './config/RouterConfig';
+import Loading from './components/Loading';
+import BasketDrawer from './components/BasketDrawer';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Container>
+      <Header />
+      <RouterConfig />
+      <Loading/>
+      <BasketDrawer />
+     </Container>
     </div>
   );
 }
