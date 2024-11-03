@@ -9,10 +9,9 @@
 - Ürün verilerini çekebilmek amacıyla "Fake Store API" kullanılmıştır.
 
 Root klasörüne proje için gerekli bağımlılıkları indirebiirsiniz
-
-'npm install @reduxjs/toolkit react-redux'
-'npm install react-router-dom'
-'npm install @mui/material @emotion/react @emotion/styled'
+`npm install @reduxjs/toolkit react-redux`
+`npm install react-router-dom`
+`npm install @mui/material @emotion/react @emotion/styled`
 
 ![foto-1](./assets/eccomerce-1.png)
 ![foto-2](./assets/eccomerce-2.png)
