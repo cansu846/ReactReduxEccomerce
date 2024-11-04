@@ -8,6 +8,8 @@
 - Arka plan için karanlık ve aydınlık seçenekleri menu kısmına eklenmiştir
 - Ürünler listelenmeden önce Loading iconu eklenmiştir.
 - Ürün verilerini çekebilmek amacıyla "Fake Store API" kullanılmıştır.
+- Search arama kutusu ile içeriğe göre ürün listeleme gerçekleştirilmiştir.
+- Drawerdaki delete butonuna tıklandıgında redux kullanılarak sepet storunda bulanan products state güncellenmiştir. Böylece hem drawerdan hem de sepetten ürün çıkarılmıştır.
 
 Root klasörüne proje için gerekli bağımlılıkları indirebiirsiniz
 ```npm install @reduxjs/toolkit react-redux```
