@@ -14,9 +14,10 @@ Root klasörüne proje için gerekli bağımlılıkları indirebiirsiniz
 ```npm install react-router-dom```
 ```npm install @mui/material @emotion/react @emotion/styled```
 
-![foto-1](./assets/eccomerce-7.png)
+![foto-7](./assets/eccomerce-7.png)
 ![foto-1](./assets/eccomerce-1.png)
-![foto-1](./assets/eccomerce-6.png)
+![foto-6](./assets/eccomerce-6.png)
+![foto](./assets/eccomerce-search-box.png)
 ![foto-2](./assets/eccomerce-2.png)
 ![foto-3](./assets/eccomerce-3.png)
 ![foto-4](./assets/eccomerce-4.png)
