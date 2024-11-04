@@ -12,7 +12,7 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import { calculateTotalPrice, setIsDrawerOpen } from '../redux/slices/basketSlice';
+import { calculateTotalPrice, deleteProductFromDrawer, setIsDrawerOpen } from '../redux/slices/basketSlice';
 import { useEffect } from 'react';
 
 export default function BasketDrawer() {
@@ -25,13 +25,16 @@ export default function BasketDrawer() {
     const onHandleDrawerClose = () => {
         dispatch(setIsDrawerOpen());
     }
+    const handleDeleteProductFromDrawer = (payload)=>{
+        dispatch(deleteProductFromDrawer(payload))
+    }
 
     useEffect(()=>{
         dispatch(calculateTotalPrice())
-    },[products])
+    },[dispatch, products.length])
 
     const DrawerList = (
-        <Box sx={{ width: 500 }} role="presentation" onClick>
+        <Box sx={{ width: 500 }} role="presentation">
             <List>
                 {
                     products.map((product) => (
@@ -52,7 +55,7 @@ export default function BasketDrawer() {
                                     <p style={{ fontWeight: "bold", width: "35px" }}>{product.price}$</p>
                                 </div>
                                 <div className="col" style={{ width: "20px" }}>
-                                    <button style={{ border: "none", backgroundColor: "darkred", color: "#fff" }}>Delete</button>
+                                    <button style={{ border: "none", backgroundColor: "darkred", color: "#fff" }} onClick={()=>handleDeleteProductFromDrawer({id: product.id})} >Delete</button>
                                 </div>
                         
                             </div>

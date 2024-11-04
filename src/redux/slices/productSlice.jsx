@@ -14,7 +14,8 @@ export const getAllProducts = createAsyncThunk("getAllProducts",
 const initialState = {
   products: [],
   loading: false,
-  selectedProduct: {}
+  selectedProduct: {},
+  backupProducts: []
 }
 
 
@@ -24,6 +25,15 @@ export const productSlice = createSlice({
   reducers: {
     setSelectedProduct: (state, action) => {
       state.selectedProduct = action.payload
+    },
+    listProductsByTitle: (state, action) => {
+      if (action.payload.trim() === "") {
+        state.products = state.backupProducts; // Restore full list if query is empty
+      } else {
+        state.products = state.backupProducts.filter((product) =>
+          product.title.toLowerCase().includes(action.payload.toLowerCase()))
+      }
+      //console.log("state.productsByTitle: "+state.productsByTitle)
     }
 
   },
@@ -34,12 +44,13 @@ export const productSlice = createSlice({
     builder.addCase(getAllProducts.fulfilled, (state, action) => {
       state.loading = false;
       state.products = action.payload;
+      state.backupProducts = action.payload;
     })
   },
 
 })
 
 // Action creators are generated for each case reducer function
-export const { setSelectedProduct } = productSlice.actions
+export const { setSelectedProduct, listProductsByTitle } = productSlice.actions
 
 export default productSlice.reducer

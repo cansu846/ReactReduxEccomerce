@@ -7,13 +7,27 @@ import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useDispatch, useSelector } from 'react-redux';
 import { setIsDrawerOpen } from '../redux/slices/basketSlice';
+import { listProductsByTitle } from '../redux/slices/productSlice';
 
 export default function Header() {
     const [theme, setTheme] = useState(false);
     const { products } = useSelector((store) => (store.basket));
     const [basketSize, setBasketSize] = useState(0);
+    const [titleFromSearch, setTitleFromSearch] = useState("");
+    const [searchTriggered, setSearchTriggered] = useState(false);
 
     const dispatch = useDispatch();
+
+    const handelSearch = ()=>{
+        dispatch(listProductsByTitle(titleFromSearch));
+    }
+    
+    useEffect(() => {
+        if (searchTriggered) {
+            handelSearch();
+            setSearchTriggered(false); // Arama tetiklendiğinde bayrağı tekrar false yaparak döngüyü önleriz
+        }
+    }, [searchTriggered]);
 
     const sumCountProducts = () => {
         let count=0
@@ -52,7 +66,14 @@ export default function Header() {
                 </div>
                 <div className="col-3 ms-auto">
 
-                    <input className="input mt-2" type="text" placeholder='Search...' />
+                    <input className="input mt-2" type="text" placeholder='Search...' 
+                    onChange={(e)=>setTitleFromSearch(e.target.value)}
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                            setSearchTriggered(true); // Enter basıldığında arama tetiklenir
+                        }
+                    }}
+                    />
 
                 </div>
                 <div className='col-auto me-auto pt-3'>

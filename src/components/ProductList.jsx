@@ -5,8 +5,9 @@ import Product from './Product';
 
 export default function ProductList() {
 
-    const {products} = useSelector((store)=>(store.product));
+    const {products,productsByTitle} = useSelector((store)=>(store.product));
     const dispatch = useDispatch();
+
     useEffect(()=>{
         dispatch(getAllProducts());
     }, [])

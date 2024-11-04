@@ -26,6 +26,10 @@ export const basketSlice = createSlice({
   name: 'basket',
   initialState,
   reducers: {
+    deleteProductFromDrawer:(state,action)=>{
+     state.products = state.products.filter((product)=>product.id !== action.payload.id)
+     //console.log("basket state.products: "+state.products)
+    },
     addProductToBasket: (state, action) => {
 
        const findProduct = state.products.find((product)=>(product.id==action.payload.id))
@@ -64,6 +68,6 @@ export const basketSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { addProductToBasket, setIsDrawerOpen, calculateTotalPrice} = basketSlice.actions
+export const { addProductToBasket, setIsDrawerOpen, calculateTotalPrice, deleteProductFromDrawer} = basketSlice.actions
 
 export default basketSlice.reducer
